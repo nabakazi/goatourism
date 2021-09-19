@@ -4,15 +4,16 @@ import Northgoabutton from '../Components/northgoabutton';
 import Centralgoabutton from '../Components/centralgoabutton';
 import Southgoabutton from '../Components/southgoabutton';
 import Backbutton from '../Components/backbutton';
-import hostelsingoa from '../Assets/hostelsingoa.jpg'
-export default function Hostels() {
+import guesthouseingoa from '../Assets/guesthouseingoa.jpg';
+
+export default function GuestPrivate() {
   return (
     <React.Fragment>
       <Container fixed>
-      <p>
-          Hostels in Goa
-      </p>
-      <img src = {hostelsingoa} className= "Hostel in goa" alt= "Hostels in Goa"/>
+        <p>
+          Guest/Private Houses in Goa
+        </p>
+        <img src = {guesthouseingoa} className= "Guest house in goa" alt= "Guest/Private in Goa"/>
         <Northgoabutton/>
         <Centralgoabutton/>
         <Southgoabutton/>

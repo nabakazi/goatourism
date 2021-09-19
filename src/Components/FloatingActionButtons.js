@@ -30,7 +30,7 @@ export default function FloatingActionButtons() {
       </Fab>
       <Fab variant="extended">
         <NavigationIcon className={classes.extendedIcon} />
-        Navigate
+        Navigate 
       </Fab>
       <Fab disabled aria-label="like">
         <FavoriteIcon />
