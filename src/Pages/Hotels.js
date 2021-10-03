@@ -5,15 +5,16 @@ import Centralgoabutton from '../Components/centralgoabutton';
 import Southgoabutton from '../Components/southgoabutton';
 import Backbutton from '../Components/backbutton';
 import hotel from '../Assets/hotel.jpg'
+import Paper from '@material-ui/core/Paper';
 
 export default function Hotels() {
   return (
     <React.Fragment>
       <Container fixed>
-      <p>
-          Hotels in Goa
-      </p>
-      <img src = {hotel} className= "Hotel" alt= "Hotel in Goa"/>
+      <Paper elevation={0}>
+        Hotels in Goa
+      </Paper>
+      <img src = {hotel} className= "Hotel" alt= "Hotel in Goa"width="70%"height="70%"/>
       <Northgoabutton/>
       <Centralgoabutton/>
       <Southgoabutton/>

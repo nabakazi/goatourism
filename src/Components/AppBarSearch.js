@@ -6,6 +6,8 @@ import { alpha, makeStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 import HomeIcon from '@material-ui/icons/Home';
 import SimpleMenu from './Goahomepage/Menu';
+import {Link, Router} from "react-router-dom";
+import goalogo from './../Assets/goalogo.png'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -39,6 +41,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(0, 2),
     height: '100%',
     position: 'absolute',
+    right: '2%',
     pointerEvents: 'none',
     display: 'flex',
     alignItems: 'center',
@@ -77,7 +80,10 @@ export default function SearchAppBar() {
           >
             <SimpleMenu/>
           </IconButton>
+          <Link to={process.env.PUBLIC_URL+'/home'}>
           <HomeIcon/>
+          </Link>
+          <img src = {goalogo} className= "Goa-Logo" alt= "Goa-Logo" width="20%" height="20%"/>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />

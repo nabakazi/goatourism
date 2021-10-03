@@ -6,28 +6,25 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
+import carousel1 from '../../Assets/carousel1.jpeg'
+import carousel2 from '../../Assets/carousel2.jpeg'
+import carousel3 from '../../Assets/carousel3.jpeg'
+import { Link } from 'react-router-dom';
 
 const tutorialSteps = [
   {
     imgPath:
-      'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60',
+      carousel3,
   },
   {
     imgPath:
-      'https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60',
+      carousel1,
   },
   {
     imgPath:
-      'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250&q=80',
+      carousel2,
   },
-  {
-    imgPath:
-      'https://images.unsplash.com/photo-1518732714860-b62714ce0c59?auto=format&fit=crop&w=400&h=250&q=60',
-  },
-  {
-    imgPath:
-      'https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60',
-  },
+ 
 ];
 
 const useStyles = makeStyles((theme) => ({
@@ -38,12 +35,12 @@ const useStyles = makeStyles((theme) => ({
   header: {
     display: 'flex',
     alignItems: 'center',
-    height: 50,
+    height: 0,
     paddingLeft: theme.spacing(4),
     backgroundColor: theme.palette.background.default,
   },
   img: {
-    height: 255,
+    height: '100%',
     maxWidth: 400,
     overflow: 'hidden',
     display: 'block',
@@ -70,15 +67,17 @@ export default function TextMobileStepper() {
       <Paper square elevation={0} className={classes.header}>
         <Typography>{tutorialSteps[activeStep].label}</Typography>
       </Paper>
+      <Link to={process.env.PUBLIC_URL+'/stayingoa'}>
       <img
         className={classes.img}
         src={tutorialSteps[activeStep].imgPath}
         alt={tutorialSteps[activeStep].label}
       />
+      </Link>
       <MobileStepper
         steps={maxSteps}
         position="static"
-        variant="text"
+        variant="dots"
         activeStep={activeStep}
         nextButton={
           <Button size="small" onClick={handleNext} disabled={activeStep === maxSteps - 1}>
@@ -92,6 +91,7 @@ export default function TextMobileStepper() {
             Back
           </Button>
         }
+
       />
     </div>
   );

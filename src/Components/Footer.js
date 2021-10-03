@@ -10,6 +10,9 @@ import Youtubeicon from './Youtubeicon';
 import Twittericon from './Twittericon';
 import Facebookicon from './Facebookicon';
 import Instaicon from './Instaicon';
+import { Grid } from '@material-ui/core';
+import Paper from '@material-ui/core/Paper';
+
 
 
 export default function AppFooter() {
@@ -18,39 +21,50 @@ export default function AppFooter() {
         
       <footer className="App-footer">
         <div className="flexbox-container">
-        <p>
+        <Paper elevation={0}>
               Policies
-            </p>
+            </Paper>
             <TermsandConditions/>
             <Disclaimer/>
             <PrivacyPolicies/>
             <HyperlinkingPolicies/>
             <Help/>
-            <p>
+
+            <Paper elevation={0}>
               Contact Us
-            </p>
-            <p>
+            </Paper>
+            <Paper elevation={0}>
               Goa Tourism Department
-            </p>
-            <p>
+            </Paper>
+            <Paper elevation={0}>
               Paryatan Bhavan, 2nd Floor, Patto
-            </p>
-            <p>
+            </Paper>
+            <Paper elevation={0}>
               Panaji-Goa, India 403001
-            </p>
+            </Paper>
             <p>
             <Callus/>
             </p>
             <p>
             <Email/>
             </p>
+            <Grid container spacing={1}>
+            <Grid item xs={3}>
             <Youtubeicon/>
+            </Grid>
+            <Grid item xs={3}>
             <Twittericon/>
+            </Grid>
+            <Grid item xs={3}>
             <Facebookicon/>
+            </Grid>
+            <Grid item xs={3}>
             <Instaicon/>
-            <p>
+            </Grid>
+            </Grid>
+            <Paper elevation={0}>
             Copyright ©️ 2021. All Rights Reserved.This is the official website of Goa Tourism Department, Govt of Goa.
-            </p>
+            </Paper>
          
 
         </div>

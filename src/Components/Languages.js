@@ -11,7 +11,9 @@ import Konkani from './Konkani';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: '100%',
+    width: '40%',
+    position: 'relative',
+    left: '60%'
   },
   heading: {
     fontSize: theme.typography.pxToRem(15),

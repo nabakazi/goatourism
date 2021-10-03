@@ -6,6 +6,9 @@ const useStyles = makeStyles((theme) => ({
   root: {
     '& > *': {
       margin: theme.spacing(1),
+      //postion: 'relative',
+      //right: '3%'
+      
     },
   },
 }));
@@ -15,7 +18,8 @@ export default function Contactus() {
 
   return (
     <div className={classes.root}>
-      <Button color="secondary">Contact Us</Button>
+      <Button color="inherit">Contact Us</Button>
+      
     </div>
   );
 }
