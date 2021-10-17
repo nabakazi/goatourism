@@ -7,7 +7,7 @@ const useStyles = makeStyles((theme) => ({
     '& > *': {
       margin: theme.spacing(1),
       postion: 'relative',
-      
+      color: 'black'
     },
   },
 }));
@@ -17,7 +17,7 @@ export default function TermsandConditions() {
 
   return (
     <div className={classes.root}>
-      <Button color="primary">Terms and Conditions</Button>
+      <Button>Terms and Conditions</Button>
     </div>
   );
 }

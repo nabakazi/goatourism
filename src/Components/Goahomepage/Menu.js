@@ -1,8 +1,8 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
-import MenuIcon from '@material-ui/icons/Menu';
 import MultiSelectTreeView from './Treeview';
+import Hamburgermenu from '../../Assets/hamburgermenu.svg';
 
 export default function SimpleMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -18,7 +18,7 @@ export default function SimpleMenu() {
   return (
     <div>
       <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-        <MenuIcon/>
+      <img src={Hamburgermenu} className="hamburgermenu" alt="hamburgerMenu"/>
       </Button>
       <Menu
         id="simple-menu"

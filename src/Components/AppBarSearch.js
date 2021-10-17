@@ -3,11 +3,14 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import { alpha, makeStyles } from '@material-ui/core/styles';
-import SearchIcon from '@material-ui/icons/Search';
-import HomeIcon from '@material-ui/icons/Home';
-import SimpleMenu from './Goahomepage/Menu';
 import {Link, Router} from "react-router-dom";
-import goalogo from './../Assets/goalogo.png'
+import goalogo from './../Assets/goalogo.png';
+import hamburgermenu from './../Assets/hamburgermenu.svg';
+import home from './../Assets/home.svg';
+import search from './../Assets/search.svg';
+import { Grid } from '@material-ui/core';
+import SimpleMenu from './Goahomepage/Menu';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -50,6 +53,13 @@ const useStyles = makeStyles((theme) => ({
   inputRoot: {
     color: 'inherit',
   },
+  AppBar: {
+    padding: '1%',
+    background: '#ffffff',
+    borderStyle: 'solid none solid none',
+    borderColor: '#B1B1B1',
+    boxShadow: '0 0 0 0'
+  },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),
     // vertical padding + font size from searchIcon
@@ -70,26 +80,35 @@ export default function SearchAppBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="static" className={classes.AppBar}>
         <Toolbar>
+        <Grid item xl={2} xs={2}>
           <IconButton
             edge="start"
             className={classes.menuButton}
             color="inherit"
             aria-label="open drawer"
           >
-            <SimpleMenu/>
+          <SimpleMenu/>
           </IconButton>
+          </Grid>
+          <Grid item xl={2} xs={2}>
           <Link to={process.env.PUBLIC_URL+'/home'}>
-          <HomeIcon/>
+          <img src={home} className="home" alt="home"/>
           </Link>
-          <img src = {goalogo} className= "Goa-Logo" alt= "Goa-Logo" width="20%" height="20%"/>
+          </Grid>
+          <Grid item xl={6} xs={6}>
+          <img src = {goalogo} className= "Goa-Logo" alt= "Goa-Logo" width="90" height="100%"/>
+          </Grid>
+          <Grid item xl={2} xs={2}>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
-              <SearchIcon />
+            <img src={search} className="search" alt="search"/>
+
             </div>
 
           </div>
+          </Grid>
         </Toolbar>
       </AppBar>
     </div>

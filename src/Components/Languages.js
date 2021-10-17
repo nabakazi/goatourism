@@ -1,49 +1,48 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Accordion from '@material-ui/core/Accordion';
-import AccordionSummary from '@material-ui/core/AccordionSummary';
-import AccordionDetails from '@material-ui/core/AccordionDetails';
-import Typography from '@material-ui/core/Typography';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Button from '@material-ui/core/Button';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import { makeStyles } from '@material-ui/styles';
 import English from './English';
 import Hindi from './Hindi';
-import Konkani from './Konkani';
+import Konkani from './Konkani'
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: '40%',
-    position: 'relative',
-    left: '60%'
-  },
-  heading: {
-    fontSize: theme.typography.pxToRem(15),
-    fontWeight: theme.typography.fontWeightRegular,
-  },
-}));
+// const useStyles = makeStyles((theme) => ({
+//   root: {
+//     '& > *': {
+//       margin: theme.spacing(1),
+//       postion: 'absolute',
+//       color: 'black'
 
-export default function SimpleAccordion() {
-  const classes = useStyles();
+//     },
+//   },
+// }));
+export default function SimpleMenu01() {
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   return (
-    <div className={classes.root}>
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-        >
-          <Typography className={classes.heading}>Languages</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <English/>
-        </AccordionDetails>
-        <AccordionDetails>
-          <Hindi/>
-        </AccordionDetails>
-        <AccordionDetails>
-          <Konkani/>
-        </AccordionDetails>
-      </Accordion>
+    <div>
+      <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+        Languages
+      </Button>
+      <Menu
+        id="simple-menu"
+        anchorEl={anchorEl}
+        keepMounted
+        open={Boolean(anchorEl)}
+        onClose={handleClose}
+      >
+        <MenuItem onClick={handleClose}><English/></MenuItem>
+        <MenuItem onClick={handleClose}><Hindi/></MenuItem>
+        <MenuItem onClick={handleClose}><Konkani/></MenuItem>
+      </Menu>
     </div>
   );
 }

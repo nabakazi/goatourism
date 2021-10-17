@@ -10,7 +10,12 @@ import carousel1 from '../../Assets/carousel1.jpeg'
 import carousel2 from '../../Assets/carousel2.jpeg'
 import carousel3 from '../../Assets/carousel3.jpeg'
 import { Link } from 'react-router-dom';
+import { autoPlay } from 'react-swipeable-views-utils';
+import SwipeableViews from 'react-swipeable-views';
 
+
+
+const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 const tutorialSteps = [
   {
     imgPath:
@@ -31,6 +36,14 @@ const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 400,
     flexGrow: 1,
+    
+  },
+  Swipe:{
+    display: 'flex',
+    justifyContent: 'center',
+  },
+  stepper:{
+    backgroundColor: 'white',
   },
   header: {
     display: 'flex',
@@ -38,17 +51,24 @@ const useStyles = makeStyles((theme) => ({
     height: 0,
     paddingLeft: theme.spacing(4),
     backgroundColor: theme.palette.background.default,
+    justifyContent: 'center',
+    margin: 10,
   },
   img: {
-    height: '100%',
-    maxWidth: 400,
-    overflow: 'hidden',
+    height: '50%',
     display: 'block',
-    width: '100%',
+    maxWidth: 400,
+    alignItems: 'center',
+    overflow: 'hidden',
+    width: '50%',
+    justifyContent: 'center',
   },
+  button: {
+    color: '#562085',
+  }
 }));
 
-export default function TextMobileStepper() {
+function SwipeableTextMobileStepper() {
   const classes = useStyles();
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
@@ -62,37 +82,52 @@ export default function TextMobileStepper() {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
+  const handleStepChange = (step) => {
+    setActiveStep(step);
+  };
+
   return (
     <div className={classes.root}>
       <Paper square elevation={0} className={classes.header}>
         <Typography>{tutorialSteps[activeStep].label}</Typography>
       </Paper>
       <Link to={process.env.PUBLIC_URL+'/stayingoa'}>
-      <img
-        className={classes.img}
-        src={tutorialSteps[activeStep].imgPath}
-        alt={tutorialSteps[activeStep].label}
-      />
+      <AutoPlaySwipeableViews
+
+        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+        index={activeStep}
+        onChangeIndex={handleStepChange}
+        enableMouseEvents
+      >
+        {tutorialSteps.map((step, index) => (
+          <div key={step.label} className={classes.Swipe}>
+            {Math.abs(activeStep - index) <= 2 ? (
+              <img className={classes.img} src={step.imgPath} alt={step.label} />
+            ) : null}
+          </div>
+        ))}
+      </AutoPlaySwipeableViews>
       </Link>
-      <MobileStepper
+      <MobileStepper className={classes.stepper}
         steps={maxSteps}
         position="static"
         variant="dots"
         activeStep={activeStep}
         nextButton={
-          <Button size="small" onClick={handleNext} disabled={activeStep === maxSteps - 1}>
-            Next
+          <Button size="small" onClick={handleNext} disabled={activeStep === maxSteps - 1} className={classes.button}>
+            
             {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
           </Button>
         }
         backButton={
-          <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
+          <Button size="small" onClick={handleBack} disabled={activeStep === 0} className={classes.button}>
             {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
-            Back
+            
           </Button>
         }
-
       />
     </div>
   );
 }
+
+export default SwipeableTextMobileStepper;

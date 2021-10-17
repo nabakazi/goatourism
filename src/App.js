@@ -1,5 +1,4 @@
 import './App.css';
-import ButtonAppBar from './Components/AppBar.js'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './Pages/Home.js'
 import PrimarySearchAppBar from './Components/AppBarSearch';
@@ -9,16 +8,25 @@ import Stay from './Pages/Stayingoa';
 import GuestPrivate from './Pages/GuestPrivateHouse';
 import AppFooter from './Components/Footer';
 import Contactus from './Components/Contactus';
-import SimpleAccordion from './Components/Languages';
+import SimpleMenu01 from './Components/Languages';
+import { Grid } from '@material-ui/core';
+
 
 function App() {
   return (
     <div className="App">
       {/* Header (Navigation Bar) */}
       <header className="App-header">
+      <Grid container spacing={1}>
+        <Grid item xl={6} xs={6}>
       <Contactus/>
-      <SimpleAccordion/>
+      </Grid>
+      <Grid item xl={6} xs={6}>
+      <SimpleMenu01/>
+      </Grid>
+      </Grid>
       <PrimarySearchAppBar/>
+    
       </header>
       
       {/* Router - Pages */}
