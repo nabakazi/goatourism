@@ -13,6 +13,7 @@ import youtube from './../Assets/youtube.svg';
 import twitter from './../Assets/twitter.svg';
 import facebook from './../Assets/facebook.svg';
 import insta from './../Assets/insta.svg'
+import Images from './Goahomepage/Images';
 
 const useStyles = makeStyles((theme) => ({
   header: {
@@ -23,6 +24,9 @@ const useStyles = makeStyles((theme) => ({
   },
   para: {
     backgroundColor: '#999999',
+  },
+  Icon: {
+    margin: 10,
   }
 }));
 
@@ -63,16 +67,19 @@ export default function AppFooter() {
             </p>
             <Grid container spacing={1}>
             <Grid item xs={3}>
-            <img src={youtube} className="youtube" alt="youtube"/>
+            <img src={youtube}  alt="youtube"className={classes.Icon}/>
             </Grid>
             <Grid item xs={3}>
-            <img src={twitter} className="twitter" alt="twitter"/>
+            <img src={twitter}  alt="twitter"className={classes.Icon}/>
             </Grid>
             <Grid item xs={3}>
-            <img src={facebook} className="facebook" alt="facebook"/>
+            <img src={facebook}  alt="facebook"className={classes.Icon}/>
             </Grid>
             <Grid item xs={3}>
-            <img src={insta} className="insta" alt="insta"/>
+            <img src={insta}  alt="insta"className={classes.Icon}/>
+            </Grid>
+            <Grid item xl={12} xs={12}>
+              <Images/>
             </Grid>
             </Grid>
             <Paper elevation={0}className={classes.para}>

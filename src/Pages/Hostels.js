@@ -25,7 +25,7 @@ export default function Hostels() {
     <React.Fragment>
       <Container fixed>
       <Paper elevation={0} className={classes.heading}>
-        Hotels in Goa
+        Hostels in Goa
       </Paper>
       <img src = {hostelsingoa} className= "Hostel in goa" alt= "Hostels in Goa" width="70%" height="70%"/>
         <Northgoabutton/>

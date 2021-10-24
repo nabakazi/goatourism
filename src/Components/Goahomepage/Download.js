@@ -3,24 +3,24 @@ import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import { makeStyles } from '@material-ui/styles';
-import English from './English';
-import Hindi from './Hindi';
-import Konkani from './Konkani'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    display: 'flex',
-    alignContent: 'left',
-    marginRight: 20,
-  },
-  lang: {
-    color: '#562085',
-  },
-}));
-export default function SimpleMenu01() {
-  const classes = useStyles();
+    root: {
+      display: 'flex',
+      alignContent: 'center',
+    },
+    lang: {
+      display: 'flex',
+      alignContent: 'center',
+      color: 'grey',
+    }, 
+  }));
+
+export default function SimpleMenuD() {
+    const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -30,10 +30,10 @@ export default function SimpleMenu01() {
   };
 
   return (
-    <div className={classes.root}>
+    <div>
       <Button className={classes.lang} aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-        Languages
-        <ExpandMoreIcon />
+        Download
+        <ExpandMoreIcon/>
       </Button>
       <Menu
         id="simple-menu"
@@ -42,9 +42,14 @@ export default function SimpleMenu01() {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose}><English/></MenuItem>
-        <MenuItem onClick={handleClose}><Hindi/></MenuItem>
-        <MenuItem onClick={handleClose}><Konkani/></MenuItem>
+        <MenuItem onClick={handleClose}>Citizen Charter</MenuItem>
+        <MenuItem onClick={handleClose}>Acts</MenuItem>
+        <MenuItem onClick={handleClose}>Policies</MenuItem>
+        <MenuItem onClick={handleClose}>Forms</MenuItem>
+        <MenuItem onClick={handleClose}>Statistics</MenuItem>
+        <MenuItem onClick={handleClose}>Admin Report</MenuItem>
+        <MenuItem onClick={handleClose}>Official Fonts</MenuItem>
+        <MenuItem onClick={handleClose}>Circulars</MenuItem>
       </Menu>
     </div>
   );

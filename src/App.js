@@ -10,6 +10,10 @@ import AppFooter from './Components/Footer';
 import Contactus from './Components/Contactus';
 import SimpleMenu01 from './Components/Languages';
 import { Grid } from '@material-ui/core';
+import Header from './Components/Goahomepage/Header';
+import BasicButtonGroup from './Components/Goahomepage/Desktopmenu';
+import Hidden from '@material-ui/core/Hidden';
+
 
 
 function App() {
@@ -18,17 +22,24 @@ function App() {
       {/* Header (Navigation Bar) */}
       <header className="App-header">
       <Grid container spacing={1}>
-        <Grid item xl={6} xs={6}>
+        <Grid item xl={11} xs={9}>
       <Contactus/>
       </Grid>
-      <Grid item xl={6} xs={6}>
+      <Grid item xl={1} xs={3}>
       <SimpleMenu01/>
       </Grid>
       </Grid>
-      <PrimarySearchAppBar/>
-    
-      </header>
       
+      </header>
+      <Hidden smUp> <Grid item xs={12}>
+      <PrimarySearchAppBar/>
+      </Grid> </Hidden>
+      <Hidden mdDown> <Grid item lg={12}>
+      <Header/>
+      </Grid> </Hidden>
+      <Hidden mdDown> <Grid item lg={12}>
+      <BasicButtonGroup/>
+      </Grid> </Hidden>
       {/* Router - Pages */}
           <Switch>
             <Route path={process.env.PUBLIC_URL + '/'} exact > <Home/> </Route>

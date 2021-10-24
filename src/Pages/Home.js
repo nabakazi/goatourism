@@ -12,11 +12,16 @@ import Paper from '@material-ui/core/Paper';
 import { Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import ButtonLink1 from '../Components/Goahomepage/Readmore';
+import { Hidden } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   }, 
+  stepper: {
+    display: 'flex',
+    justifyContent: 'center'
+  },
   heading: {
     fontWeight: 'bold',
     fontSize: 20,
@@ -47,6 +52,7 @@ export default function Home() {
   return (
     <React.Fragment>
         <Container fixed>
+        <Hidden smUp>
         <Grid item xl={12} xs={12}>
         <img src = {GoaLogo} className= "Government of Goa" alt= "Government of Goa" width= "100" height="100%"/>
         </Grid>
@@ -56,6 +62,7 @@ export default function Home() {
         <Paper elevation={0}>
             Government of Goa
         </Paper>
+        </Hidden>
           <SwipeableTextMobileStepper/>
           <Paper elevation={0}className={classes.subtitle}>
             Welcome to Goa Tourism Department
@@ -72,7 +79,9 @@ export default function Home() {
           <Paper elevation={0}className={classes.sub}>
             Travel Essentials
             </Paper>
+            <Paper elevation={0} className={classes.stepper}>
           <TextMobileStepper/>
+          </Paper>
 
           <Grid item xl={12} xs={12}>
           <OutlinedButtons6/>
